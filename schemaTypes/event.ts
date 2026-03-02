@@ -12,6 +12,12 @@ export const event = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'listSummary',
+      title: 'Short text (list)',
+      type: 'string',
+      description: 'Optional line of text shown under the title in event lists',
+    }),
+    defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
