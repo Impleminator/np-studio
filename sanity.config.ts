@@ -10,7 +10,29 @@ export default defineConfig({
   projectId: 'teey78bh',
   dataset: 'production',
 
-  plugins: [structureTool(), visionTool()],
+  plugins: [
+    structureTool({
+      structure: (S: any) =>
+        S.list()
+          .title('Content')
+          .items([
+            S.listItem().title('Pages').child(S.documentTypeList('page').title('Pages')),
+            S.listItem()
+              .title('Site settings')
+              .child(S.document().schemaType('siteSettings').documentId('siteSettings')),
+            S.listItem()
+              .title('Events')
+              .child(S.documentTypeList('event').title('Events')),
+            S.listItem()
+              .title('Categories')
+              .child(S.documentTypeList('category').title('Categories')),
+            S.listItem()
+              .title('Locations')
+              .child(S.documentTypeList('location').title('Locations')),
+          ]),
+    }),
+    visionTool(),
+  ],
 
   schema: {
     types: schemaTypes,
