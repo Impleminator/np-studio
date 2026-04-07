@@ -69,9 +69,35 @@ export const event = defineType({
     }),
     defineField({
       name: 'image',
-      title: 'Image',
+      title: 'Main image',
       type: 'image',
       options: {hotspot: true},
+    }),
+    defineField({
+      name: 'gallery',
+      title: 'Image gallery',
+      description: 'Additional images shown in a gallery on the event page',
+      type: 'array',
+      of: [
+        {
+          type: 'image',
+          options: {hotspot: true},
+          fields: [
+            {
+              name: 'alt',
+              title: 'Alternative text',
+              type: 'string',
+              description: 'Describe the image for screen readers',
+            },
+            {
+              name: 'caption',
+              title: 'Caption',
+              type: 'string',
+            },
+          ],
+        },
+      ],
+      options: {layout: 'grid'},
     }),
     defineField({
       name: 'externalUrl',
