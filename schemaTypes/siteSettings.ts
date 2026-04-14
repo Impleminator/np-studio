@@ -19,6 +19,13 @@ export const siteSettings = defineType({
       description: 'Shown in the header. Leave empty to use the site title as text.',
     }),
     defineField({
+      name: 'favicon',
+      title: 'Favicon',
+      type: 'image',
+      description:
+        'Browser tab icon. Use a square image (ideally 512×512 px, SVG or PNG with transparency). Leave empty to use the default favicon.',
+    }),
+    defineField({
       name: 'defaultMetaDescription',
       title: 'Default meta description',
       type: 'text',
